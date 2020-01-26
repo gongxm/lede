@@ -12,6 +12,9 @@ name: newifi D2 with usb-wifi
 on:
   schedule:
     - cron: 0 20 * * *
+  push:
+    branches: 
+      - master
 
 jobs:
 
@@ -63,7 +66,7 @@ jobs:
 
       - name: Compile firmware
         run: |
-          make -j$(nproc) || make -j1 V=s
+          make -j$(nproc) || make -j16 V=s
           echo "======================="
           echo "Space usage:"
           echo "======================="
